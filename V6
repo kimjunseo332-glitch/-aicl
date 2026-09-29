@@ -1,0 +1,409 @@
+AICL
+
+AI Collaboration Language
+
+AICL is a compact notation for structured communication, processing, and validation between AI systems.
+
+It is designed for AI-to-AI communication and collaboration.
+
+AICL allows AI systems to exchange structured information, tasks, states, constraints, changes, and validation conditions during multi-step collaboration.
+
+It is designed to make information, state, changes, and validation conditions explicit during AI collaboration.
+
+Status
+
+- Current version: V6
+- V6 status: FROZEN
+- Next version: V7
+- V7 status: In development
+
+V6 is the current frozen reference specification.
+Future versions are developed separately and do not modify the V6 reference.
+
+Target Environment
+
+AICL is primarily intended for AI systems and AI-to-AI collaboration.
+
+It is designed for cases where one AI system needs to send structured tasks, confirmed information, unconfirmed information, state, constraints, validation rules, or next actions to another AI system.
+
+It can be used in systems that interact with other software, tools, hardware, or embedded devices when structured communication and validation are needed.
+
+Hardware and embedded control are application areas, not required components of the core AICL specification.
+
+What AICL is for
+
+AICL focuses on keeping important information stable while AI systems work together.
+
+It is intended to reduce ambiguity when AI systems exchange information or hand off work between agents.
+
+It provides a compact way to represent:
+
+- confirmed and unconfirmed information
+- tasks and processing methods
+- next actions
+- state changes
+- conflicts and collisions
+- information preservation requirements
+- validation conditions
+- benchmark and comparison results
+
+AICL is not intended to replace natural language.
+
+It can be used as a structured layer alongside natural language when explicit state, constraints, and validation are needed.
+
+Basic Notation
+
+R = task / operation
+F = confirmed information
+U = unconfirmed information
+X = problem / failure / rejection
+M = processing method
+Q = next task
+C = claim / content
+K = confirmed state
+E = evidence
+
+These symbols identify the role of information within an AICL statement.
+
+Syntax and Delimiters
+
+AICL uses a small set of structural symbols.
+
+: = field separator
+; = statement separator
+| = argument separator
+= = value assignment / equality
+→ = transformation / transfer
+? = question / confirmation
+∧ = logical AND
+{} = set
+[] = list
+Σ = summation
+
+Example
+
+R:DEFINE
+F:SEM=CONST:K
+Q:NEXT→VALIDATION
+
+In this example:
+
+- "R:DEFINE" identifies "DEFINE" as the value of "R".
+- "F:SEM=CONST:K" represents a semantic preservation condition with a confirmed state.
+- "Q:NEXT→VALIDATION" represents a transition or direction from "NEXT" to "VALIDATION".
+
+The delimiters define structure; they do not change the meaning of the values they contain.
+
+States
+
+CONST=identical / unchanged
+PASS=passed
+FAIL=failed
+PENDING=waiting
+BLOCKED=cannot proceed
+FROZEN=frozen
+VALID=valid
+VALIDATED=validated
+REQUIRED=required
+UNDEFINED=not defined
+AMBIGUOUS=ambiguous
+REJECT=rejection condition
+REJECTED=rejected
+MISSING=missing
+
+Processing
+
+DEFINE=define
+REVISE=revise
+GENERATE=generate
+GENERATE_NEW=generate as new
+BENCH=benchmark
+MEASURE=measure
+COMPARE=compare
+EXEC=execute
+RUN=execute
+RESOLVE=resolve
+PROPAGATE=propagate
+RECONSTRUCT=reconstruct
+REASSESS=reassess
+
+Validation and Preservation
+
+AICL explicitly represents information that must remain unchanged during processing.
+
+SEM=CONST
+CTX=CONST
+CONTENT_PRESERVE=REQUIRED
+SEM_PRESERVE=REQUIRED
+CTX_PRESERVE=REQUIRED
+ID_UNIQUE=REQUIRED
+COLLISION=REJECT
+CONFLICT=REJECT
+MAP_SCOPE=FIELD_TOKEN_ONLY
+CONTENT_TOKENIZATION=REJECT
+SEMANTIC_VALUE_REWRITE=REJECT
+CTX_REWRITE=REJECT
+
+These rules define conditions under which a transformation or result can be accepted or rejected.
+
+V6
+
+V6 is the current frozen reference version of AICL.
+
+The V6 specification is preserved as a fixed reference so that later versions can be compared against it.
+
+/spec/v6/
+
+V7
+
+V7 is currently under development.
+
+V7 is not the current reference specification.
+
+Changes introduced during V7 development are kept separate from V6 until the new version has completed its validation process.
+
+Validation
+
+AICL development includes testing and benchmarking.
+
+The validation process examines areas such as:
+
+- semantic preservation
+- context preservation
+- content preservation
+- identifier uniqueness
+- collision detection
+- conflict detection
+- parsing
+- token efficiency
+- character efficiency
+- failure rate
+
+/validation/
+/test/
+/benchmarks/
+
+Version History
+
+Version| Status| Description
+V5| Previous| Fifth efficiency version
+V6| FROZEN| Current reference specification
+V7| Development| Next version under development
+
+Contributing
+
+If you find an ambiguous rule, an unsupported case, a conflict, or another issue while using AICL, open an Issue or Discussion.
+
+Changes to the frozen V6 specification should be proposed separately rather than modifying the reference directly.
+
+Proposed changes can be reviewed for a future version.
+
+License
+
+License information will be added before the first public release.
+
+
+
+AICL
+
+AI 협업 언어
+
+AICL 은 AI 시스템 간 구조화된 통신, 처리, 검증을 위한 간결한 표기법이다.
+
+AICL 은 AI 간 통신과 협업을 위해 설계되었다.
+
+AICL 은 AI 시스템들이 다단계 협업 과정에서 구조화된 정보, 작업, 상태, 제약 조건, 변경 사항, 검증 조건을 주고받을 수 있도록 한다.
+
+AICL 은 AI 협업 과정에서 정보, 상태, 변경 사항, 검증 조건을 명시적으로 표현하도록 설계되었다.
+
+Status
+
+- 현재 버전: V6
+- V6 상태: FROZEN
+- 다음 버전: V7
+- V7 상태: 개발 중
+
+V6 는 현재 동결된 기준 규격이다.
+향후 버전은 별도로 개발되며, V6 기준 규격을 수정하지 않는다.
+
+Target Environment
+
+AICL 은 주로 AI 시스템과 AI 간 협업을 위해 설계되었다.
+
+AICL 은 한 AI 시스템이 다른 AI 시스템에게 구조화된 작업, 확정 정보, 미확정 정보, 상태, 제약 조건, 검증 규칙, 다음 작업을 전달해야 하는 상황을 위해 사용된다.
+
+AICL 은 구조화된 통신과 검증이 필요한 경우 다른 소프트웨어, 도구, 하드웨어, 임베디드 장치와 상호작용하는 시스템에서도 사용할 수 있다.
+
+하드웨어 및 임베디드 제어는 응용 분야이며, AICL 핵심 규격의 필수 구성 요소가 아니다.
+
+What AICL is for
+
+AICL 은 AI 시스템들이 함께 작업하는 동안 중요한 정보를 안정적으로 유지하기 위해 설계되었다.
+
+AICL 은 AI 시스템들이 정보를 교환하거나 에이전트 간 작업을 넘길 때 발생하는 모호성을 줄이는 것을 목표로 한다.
+
+AICL 은 다음을 간결하게 표현하는 방법을 제공한다.
+
+- 확정 정보와 미확정 정보
+- 작업과 처리 방법
+- 다음 작업
+- 상태 변경
+- 충돌과 식별자 중복
+- 정보 보존 요구사항
+- 검증 조건
+- 벤치마크 및 비교 결과
+
+AICL 은 자연어를 대체하기 위한 것이 아니다.
+
+AICL 은 명시적인 상태, 제약 조건, 검증이 필요한 경우 자연어와 함께 구조화된 계층으로 사용할 수 있다.
+
+Basic Notation
+
+R = 작업 / 연산
+F = 확정 정보
+U = 미확정 정보
+X = 문제 / 실패 / 거부
+M = 처리 방법
+Q = 다음 작업
+C = 주장 / 내용
+K = 확정 상태
+E = 근거
+
+이 기호들은 AICL 문장 내에서 정보의 역할을 식별한다.
+
+Syntax and Delimiters
+
+AICL 은 소수의 구조적 기호를 사용한다.
+
+: = 필드 구분 기호
+; = 문장 구분 기호
+| = 인자 구분 기호
+= = 값 할당 / 동일
+→ = 변환 / 전달
+? = 질문 / 확인
+∧ = 논리 AND
+{} = 집합
+[] = 목록
+Σ = 합계
+
+Example
+
+R:DEFINE
+F:SEM=CONST:K
+Q:NEXT→VALIDATION
+
+이 예시에서:
+
+- "R:DEFINE"은 "DEFINE"을 "R"의 값으로 식별한다.
+- "F:SEM=CONST:K"는 확정 상태의 의미 보존 조건을 나타낸다.
+- "Q:NEXT→VALIDATION"은 "NEXT"에서 "VALIDATION"으로의 전환 또는 방향을 나타낸다.
+
+구분 기호는 구조를 정의하며, 포함된 값의 의미를 변경하지 않는다.
+
+States
+
+CONST=동일 / 변경 없음
+PASS=통과
+FAIL=실패
+PENDING=대기
+BLOCKED=진행 불가
+FROZEN=동결
+VALID=유효
+VALIDATED=검증 완료
+REQUIRED=필요
+UNDEFINED=정의되지 않음
+AMBIGUOUS=모호함
+REJECT=거부 조건
+REJECTED=거부됨
+MISSING=누락
+
+Processing
+
+DEFINE=정의
+REVISE=수정
+GENERATE=생성
+GENERATE_NEW=새로 생성
+BENCH=벤치마크
+MEASURE=측정
+COMPARE=비교
+EXEC=실행
+RUN=실행
+RESOLVE=해결
+PROPAGATE=전파
+RECONSTRUCT=재구성
+REASSESS=재평가
+
+Validation and Preservation
+
+AICL 은 처리 과정에서 변경되지 않아야 하는 정보를 명시적으로 표현한다.
+
+SEM=CONST
+CTX=CONST
+CONTENT_PRESERVE=REQUIRED
+SEM_PRESERVE=REQUIRED
+CTX_PRESERVE=REQUIRED
+ID_UNIQUE=REQUIRED
+COLLISION=REJECT
+CONFLICT=REJECT
+MAP_SCOPE=FIELD_TOKEN_ONLY
+CONTENT_TOKENIZATION=REJECT
+SEMANTIC_VALUE_REWRITE=REJECT
+CTX_REWRITE=REJECT
+
+이 규칙들은 변환 또는 결과를 허용하거나 거부할 수 있는 조건을 정의한다.
+
+V6
+
+V6 는 AICL 의 현재 동결된 기준 버전이다.
+
+V6 규격은 이후 버전들이 이를 기준으로 비교할 수 있도록 고정된 참조로 보존된다.
+
+/spec/v6/
+
+V7
+
+V7 은 현재 개발 중이다.
+
+V7 은 현재 기준 규격이 아니다.
+
+V7 개발 과정에서 도입된 변경 사항은 새 버전이 검증 과정을 완료할 때까지 V6 와 분리되어 유지된다.
+
+Validation
+
+AICL 개발에는 테스트와 벤치마크가 포함된다.
+
+검증 과정은 다음 영역을 검사한다.
+
+- 의미 보존
+- 문맥 보존
+- 내용 보존
+- 식별자 고유성
+- 충돌 감지
+- 충돌 정보 감지
+- 파싱
+- 토큰 효율
+- 문자 효율
+- 실패율
+
+/validation/
+/test/
+/benchmarks/
+
+Version History
+
+Version| Status| Description
+V5| Previous| 다섯 번째 효율 버전
+V6| FROZEN| 현재 기준 규격
+V7| Development| 개발 중인 다음 버전
+
+Contributing
+
+AICL 을 사용하는 동안 모호한 규칙, 지원되지 않는 사례, 충돌 또는 기타 문제를 발견하면 Issue 또는 Discussion 을 열어라.
+
+동결된 V6 규격에 대한 변경 사항은 기준을 직접 수정하는 대신 별도로 제안해야 한다.
+
+제안된 변경 사항은 향후 버전을 위해 검토될 수 있다.
+
+License
+
+라이선스 정보는 첫 공개 릴리스 전에 추가될 것이다.
